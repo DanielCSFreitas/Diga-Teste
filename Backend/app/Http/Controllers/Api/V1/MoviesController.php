@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Movies;
 use App\Http\Requests\StoreMoviesRequest;
 use App\Http\Requests\UpdateMoviesRequest;
+
+use App\Http\Controllers\Controller;
 
 class MoviesController extends Controller
 {
@@ -15,7 +17,7 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        //
+        return Movies::all();
     }
 
     /**

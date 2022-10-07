@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\movies_tags;
 use App\Http\Requests\Storemovies_tagsRequest;

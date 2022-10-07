@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Tags;
 use App\Http\Requests\StoreTagsRequest;
 use App\Http\Requests\UpdateTagsRequest;
+
+use App\Http\Controllers\Controller;
 
 class TagsController extends Controller
 {
@@ -15,7 +17,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        return Tags::all();
     }
 
     /**
