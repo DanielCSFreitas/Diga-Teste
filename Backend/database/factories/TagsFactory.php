@@ -19,7 +19,6 @@ class TagsFactory extends Factory
     public function definition()
     {
         return [
-            'movies_id' => Movies::Factory(),
             'name' => $this->faker->name(),
         ];
     }

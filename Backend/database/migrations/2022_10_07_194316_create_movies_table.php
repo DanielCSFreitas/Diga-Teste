@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->integer('file_size'); // Cannot be bigger than 5mb
             $table->timestamps();

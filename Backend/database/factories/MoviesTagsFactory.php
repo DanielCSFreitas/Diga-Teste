@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Tags;
-use App\Models\Movies;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Movies>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\movies_tags>
  */
-class MoviesFactory extends Factory
+class MoviesTagsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,8 +17,7 @@ class MoviesFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'file_size' => $this->faker->randomDigit(),
+            //
         ];
     }
 }

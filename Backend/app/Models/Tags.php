@@ -10,6 +10,6 @@ class Tags extends Model
     use HasFactory;
 
     public function movies(){
-        return $this->belongsTo(Movies::class);
+        return $this->belongsToMany(Movies::class, 'movies_tags');
     }
 }
