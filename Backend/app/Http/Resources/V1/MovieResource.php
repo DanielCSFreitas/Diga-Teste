@@ -15,10 +15,10 @@ class MovieResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'name' => $this->name,
             'fileSize' => $this->file_size,
             'createdAt' => $this->created_at,
+            'tags' => TagResource::collection($this->whenLoaded('tag')),
         ];
     }
 }

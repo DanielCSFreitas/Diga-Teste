@@ -7,6 +7,8 @@ use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Http\Resources\V1\MovieResource;
 use App\Http\Resources\V1\MovieCollection;
+//use App\Filters\V1\MovieFilter;
+use Illuminate\Http\Request;     
 
 use App\Http\Controllers\Controller;
 
@@ -17,9 +19,40 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return new MovieCollection(Movie::paginate());
+    public function index(Request $request)
+    {   
+        $orderBy = $request->input('orderBy');
+        $inverse = $request->input('Desc');
+        switch ($orderBy){
+            case 'name':
+                if($inverse=='true'){
+                    return new MovieCollection(Movie::with(['tag'])->get()->sortByDesc('name'));
+                    break;
+                }
+                return new MovieCollection(Movie::with(['tag'])->get()->sortBy('name'));
+                break;
+            case 'file':
+                if($inverse=='true'){
+                    return new MovieCollection(Movie::with(['tag'])->get()->sortByDesc('file_size'));
+                    break;
+                }
+                return new MovieCollection(Movie::all()->sortBy('file_size'));
+                break;
+            case 'date':
+                if($inverse=='true'){
+                    return new MovieCollection(Movie::with(['tag'])->get()->sortByDesc('created_at'));
+                    break;
+                }
+                return new MovieCollection(Movie::with(['tag'])->get()->sortBy('created_at'));
+                break;
+            default:
+                if($inverse=='true'){
+                    return new MovieCollection(Movie::with(['tag'])->get()->sortByDesc('name'));
+                    break;
+                }
+                return new MovieCollection(Movie::with(['tag'])->get()->sortBy('name'));
+                break;
+        }
     }
 
     /**

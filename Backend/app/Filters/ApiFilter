@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Filters;
+
+use Illuminate\Http\Request;
+
+class ApiFilter{
+    protected $allowedParms = [];
+
+    protected $operatorMap = [];
+
+    public function transform(Request $request){
+        $eloQuery = [];
+
+        foreach($this->allowedParms as $param => $operators){
+            $query = $request->query($param);
+            
+            if(!isset($query))
+                continue;
+
+            foreach($operators as $operator){
+                if (isset($query[$operator]))
+                    $eloQuery[] = [$param, $this->operatorMap[$operator], $query[$operator]];
+            }
+        }
+        return $eloQuery;   
+    }
+}
+
