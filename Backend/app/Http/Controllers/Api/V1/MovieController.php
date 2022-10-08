@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Movie;
-use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
+use App\Http\Requests\V1\UpdateMovieRequest;
 use App\Http\Resources\V1\MovieResource;
 use App\Http\Resources\V1\MovieCollection;
+use App\Http\Requests\V1\StoreMovieRequest;
 //use App\Filters\V1\MovieFilter;
 use Illuminate\Http\Request;     
 
@@ -73,7 +73,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        //
+        return new MovieResource(Movie::create($request->all( )));
     }
 
     /**
@@ -109,7 +109,10 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        if($request['tag_id']){
+            $movie->tag()->sync($request['tag_id']);
+        }
+        $movie->update($request->all());
     }
 
     /**

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Tag;
-use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\V1\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
 use App\Http\Resources\V1\TagResource;
 use App\Http\Resources\V1\TagCollection;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Arr;
 
 class TagController extends Controller
 {
@@ -39,7 +40,7 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        //
+        return new TagResource(Tag::create($request->all( )));
     }
 
     /**

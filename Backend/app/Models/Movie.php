@@ -9,7 +9,10 @@ class Movie extends Model
 {   
     public $table = 'movie';
     use HasFactory;
-
+    protected $fillable = [
+        'name',
+        'file_size',
+    ];
     public function tag(){
         return $this->belongsToMany(Tag::class, 'movie_tag');
     }
