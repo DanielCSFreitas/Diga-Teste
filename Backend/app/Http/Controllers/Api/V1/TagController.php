@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
-
+use App\Http\Resources\V1\TagResource;
+use App\Http\Resources\V1\TagCollection;
 use App\Http\Controllers\Controller;
 
 class TagController extends Controller
@@ -17,7 +18,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return Tag::all();
+        return new TagCollection(Tag::paginate());
     }
 
     /**
@@ -47,9 +48,11 @@ class TagController extends Controller
      * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($id)
     {
-        //
+        $tag = Tag::find($id);
+
+        return new TagResource($tag);
     }
 
     /**

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use App\Http\Resources\V1\MovieResource;
+use App\Http\Resources\V1\MovieCollection;
 
 use App\Http\Controllers\Controller;
 
@@ -17,7 +19,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return Movie::all();
+        return new MovieCollection(Movie::paginate());
     }
 
     /**
@@ -50,7 +52,8 @@ class MovieController extends Controller
     public function show($id)
     {
         $movie = Movie::find($id);
-        return $movie;
+
+        return new MovieResource($movie);
     }
 
     /**
