@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('movies_tags', function (Blueprint $table) {
-            $table->integer('movies_id')->unsigned();
-            $table->integer('tags_id')->unsigned();
-            
-            $table->foreign('movies_id')->references('id')->on('movies')
+        Schema::create('movie_tag', function (Blueprint $table) {
+            $table->integer('movie_id')->unsigned();
+            $table->integer('tag_id')->unsigned();
+
+            $table->foreign('movie_id')->references('id')->on('movie')
                 ->onDelete('cascade');
-            $table->foreign('tags_id')->references('id')->on('tags')
+            $table->foreign('tag_id')->references('id')->on('tag')
                 ->onDelete('cascade');
                 });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies_tags');
+        Schema::dropIfExists('movie_tag');
     }
 };

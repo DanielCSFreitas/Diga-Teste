@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Movies extends Model
-{
+class Movie extends Model
+{   
+    public $table = 'movie';
     use HasFactory;
 
-    public function tags(){
-        return $this->belongsToMany(Tags::class, 'movies_tags');
+    public function tag(){
+        return $this->belongsToMany(Tag::class, 'movie_tag');
     }
 }

@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Tags;
-use App\Models\Movies;
+use App\Models\Tag;
+use App\Models\Movie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tags>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class TagsFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.

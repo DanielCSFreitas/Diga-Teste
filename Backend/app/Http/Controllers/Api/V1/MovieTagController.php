@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Movies;
-use App\Http\Requests\StoreMoviesRequest;
-use App\Http\Requests\UpdateMoviesRequest;
+use App\Models\movie_tag;
+use App\Http\Requests\Storemovie_tagRequest;
+use App\Http\Requests\Updatemovie_tagRequest;
 
 use App\Http\Controllers\Controller;
 
-class MoviesController extends Controller
+class MovieTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return Movies::all();
+        //
     }
 
     /**
@@ -33,10 +33,10 @@ class MoviesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMoviesRequest  $request
+     * @param  \App\Http\Requests\Storemovie_tagRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMoviesRequest $request)
+    public function store(Storemovie_tagRequest $request)
     {
         //
     }
@@ -44,10 +44,10 @@ class MoviesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Movies  $movies
+     * @param  \App\Models\movie_tag  $movie_tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Movies $movies)
+    public function show(movie_tag $movie_tag)
     {
         //
     }
@@ -55,10 +55,10 @@ class MoviesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Movies  $movies
+     * @param  \App\Models\movie_tag  $movie_tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movies $movies)
+    public function edit(movie_tag $movie_tag)
     {
         //
     }
@@ -66,11 +66,11 @@ class MoviesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMoviesRequest  $request
-     * @param  \App\Models\Movies  $movies
+     * @param  \App\Http\Requests\Updatemovie_tagRequest  $request
+     * @param  \App\Models\movie_tag  $movie_tag
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMoviesRequest $request, Movies $movies)
+    public function update(Updatemovie_tagRequest $request, movie_tag $movie_tag)
     {
         //
     }
@@ -78,10 +78,10 @@ class MoviesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Movies  $movies
+     * @param  \App\Models\movie_tag  $movie_tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movies $movies)
+    public function destroy(movie_tag $movie_tag)
     {
         //
     }

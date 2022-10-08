@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class movies_tags extends Model
+class MovieTag extends Model
 {
-    
+    public $table = 'movie_tag';
 }

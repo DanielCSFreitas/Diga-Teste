@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Tags;
+use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TagsPolicy
+class MoviePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class TagsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tags  $tags
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Tags $tags)
+    public function view(User $user, Movie $movie)
     {
         //
     }
@@ -48,10 +48,10 @@ class TagsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tags  $tags
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Tags $tags)
+    public function update(User $user, Movie $movie)
     {
         //
     }
@@ -60,10 +60,10 @@ class TagsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tags  $tags
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Tags $tags)
+    public function delete(User $user, Movie $movie)
     {
         //
     }
@@ -72,10 +72,10 @@ class TagsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tags  $tags
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Tags $tags)
+    public function restore(User $user, Movie $movie)
     {
         //
     }
@@ -84,10 +84,10 @@ class TagsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tags  $tags
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Tags $tags)
+    public function forceDelete(User $user, Movie $movie)
     {
         //
     }
