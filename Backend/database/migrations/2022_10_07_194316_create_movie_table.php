@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('file_size'); // Cannot be bigger than 5mb
             $table->timestamps();
+            $table->string('path')->default('/');
         });
     }   
 

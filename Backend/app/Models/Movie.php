@@ -12,6 +12,8 @@ class Movie extends Model
     protected $fillable = [
         'name',
         'file_size',
+        'file',
+        'path'
     ];
     public function tag(){
         return $this->belongsToMany(Tag::class, 'movie_tag');

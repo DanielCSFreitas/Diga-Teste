@@ -7,6 +7,7 @@ use App\Http\Requests\V1\UpdateMovieRequest;
 use App\Http\Resources\V1\MovieResource;
 use App\Http\Resources\V1\MovieCollection;
 use App\Http\Requests\V1\StoreMovieRequest;
+use Illuminate\Support\Facades\Storage;
 //use App\Filters\V1\MovieFilter;
 use Illuminate\Http\Request;     
 
@@ -72,8 +73,21 @@ class MovieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreMovieRequest $request)
-    {
-        return new MovieResource(Movie::create($request->all( )));
+    {   
+        $fileName = $request->file->getClientOriginalName();
+        $filePath = 'movies/' . $fileName;
+
+        $movie = new Movie;
+        $movie->name = $request->name;
+        $movie->file_size = $request->fileSize;
+        $movie->path = $filePath;
+        
+        Storage::disk('public')->put($filePath, file_get_contents($request->file));
+        
+        $url = Storage::disk('public')->url($filePath);
+        
+        $newMovie = $movie->save();
+        return $url;
     }
 
     /**
