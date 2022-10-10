@@ -74,20 +74,23 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {   
-        $fileName = $request->file->getClientOriginalName();
-        $filePath = 'movies/' . $fileName;
 
         $movie = new Movie;
         $movie->name = $request->name;
         $movie->file_size = $request->fileSize;
-        $movie->path = $filePath;
-        
-        Storage::disk('public')->put($filePath, file_get_contents($request->file));
-        
-        $url = Storage::disk('public')->url($filePath);
+
+        if($request->file){
+            $fileName = $request->file->getClientOriginalName();
+            $filePath = 'movies/' . $fileName;
+            $movie->path = $filePath;
+            Storage::disk('public')->put($filePath, file_get_contents($request->file));
+            $url = Storage::disk('public')->url($filePath);
+            $newMovie = $movie->save();
+            return $url;
+        }
         
         $newMovie = $movie->save();
-        return $url;
+        return $newMovie;
     }
 
     /**
@@ -98,8 +101,7 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        $movie = Movie::find($id);
-
+        $movie = Movie::with(['tag'])->get()->find($id);
         return new MovieResource($movie);
     }
 

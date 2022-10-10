@@ -52,4 +52,9 @@ class AuthController extends Controller
             }
         }
     }
+
+    public function delete(Request $request)
+    {   
+        User::destroy($request->id);
+    }
 }

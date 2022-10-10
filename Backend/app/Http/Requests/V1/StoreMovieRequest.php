@@ -26,7 +26,7 @@ class StoreMovieRequest extends FormRequest
         return [
             'name' => ['required'],
             'fileSize' => ['required', 'numeric', 'lte:5'],
-            'file' => ['required', 'file', 'mimetypes:video/mp4'],
+            'file' => ['sometimes','required', 'file', 'mimetypes:video/mp4'],
         ];
     }
 

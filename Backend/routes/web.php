@@ -23,3 +23,4 @@ Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
 Route::post('/auth/check',[AuthController::class, 'check'])->name('auth.check');
+Route::delete('/auth/delete',[AuthController::class, 'delete'])->name('auth.delete');
