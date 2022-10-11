@@ -29,6 +29,7 @@ class UpdateMovieRequest extends FormRequest
             return [
                 'name' => ['required'],
                 'fileSize' => ['required'],
+                'tagId' => ['sometimes']
             ];
         } else {
             return [
