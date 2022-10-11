@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "c9b3f2b3-e366-4ba2-9680-0fc459bfabd8",
+		"name": "Diga-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Access the register page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "User Test",
+							"description": "\n",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "test@email.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "test_password",
+							"type": "default"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "test_password",
+							"type": "default"
+						},
+						{
+							"key": "_token",
+							"value": "EW1qH3o34t239TtEelFiElqAYXOgpBu4zxgCsAFF",
+							"description": "Token acquired in the register page",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access the login page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_token",
+							"value": "EW1qH3o34t239TtEelFiElqAYXOgpBu4zxgCsAFF",
+							"description": "Token acquired in the login page",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "test@email.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "test_password",
+							"type": "default"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List movies",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXV0aC9jaGVjayIsImlhdCI6MTY2NTQ1MDg2MiwiZXhwIjoxNjY1NTM3MjYyLCJuYmYiOjE2NjU0NTA4NjIsImp0aSI6InBlbEh2d0loRHdyTEo4ajkiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.j0FE30CQiJZ1td-IVrM42jP6Sl04gI3lysg-hnaOrPU",
+						"description": "Token acquired when the user has logged in",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "\"Movie Test\"",
+							"type": "default"
+						},
+						{
+							"key": "fileSize",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/movie/40",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"movie",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXV0aC9jaGVjayIsImlhdCI6MTY2NTQ1MTE2MiwiZXhwIjoxNjY1NTM3NTYyLCJuYmYiOjE2NjU0NTExNjIsImp0aSI6InpIcUVHVlZlZldsdHVtakwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xaEREocIHifUp2Sr8_SKBh5v0yZZYCDD4Qbd6LXumLk",
+						"description": "Token acquired when the user has logged in",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "\"Movie Test\"",
+							"type": "default"
+						},
+						{
+							"key": "fileSize",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/movie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movie",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXV0aC9jaGVjayIsImlhdCI6MTY2NTM2MTg2NywiZXhwIjoxNjY1NDQ4MjY3LCJuYmYiOjE2NjUzNjE4NjcsImp0aSI6IlpmU25TeXVUeERoYWhXbFkiLCJzdWIiOiI0IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Kjc7oSEtabMPLExqYdq96YZY0Inn2Pa5hcsMaUNDQjg",
+						"description": "Token acquired when the user has logged in",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"#Updated movie\",\r\n    \"fileSize\": 0,\r\n    \"tagId\": [1,2,3]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/movie/81",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"movie",
+						"81"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Tag",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXV0aC9jaGVjayIsImlhdCI6MTY2NTM2MTg2NywiZXhwIjoxNjY1NDQ4MjY3LCJuYmYiOjE2NjUzNjE4NjcsImp0aSI6IlpmU25TeXVUeERoYWhXbFkiLCJzdWIiOiI0IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Kjc7oSEtabMPLExqYdq96YZY0Inn2Pa5hcsMaUNDQjg",
+						"description": "Token acquired when the user has logged in",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test tag\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/tag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"tag"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
